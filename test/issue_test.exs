@@ -2,7 +2,12 @@ defmodule IssueTest do
   use ExUnit.Case
   doctest Issue
 
-  test "greets the world" do
-    assert 1 + 1 == 2
+  setup_all do
+    this_issue = %Issue{ projectname: 'Foo', id: '1'}
+    {:ok, issue: this_issue}
+  end
+  
+  test "Initial issue state",context do
+    assert context[:issue].state == :Open
   end
 end
