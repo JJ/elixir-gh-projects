@@ -10,4 +10,9 @@ defmodule IssueTest do
   test "Initial issue state",context do
     assert context[:issue].state == :Open
   end
+
+  test "State after closing",context do
+    new_issue = Issue.close(context[:issue])
+    assert new_issue.state == :Closed
+  end
 end
