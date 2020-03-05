@@ -15,4 +15,9 @@ defmodule IssueTest do
     new_issue = Issue.close(context[:issue])
     assert new_issue.state == :Closed
   end
+
+  test "State after reopening",context do
+    new_issue = Issue.reopen(context[:issue])
+    assert new_issue.state == :Open
+  end
 end
