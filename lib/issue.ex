@@ -1,15 +1,20 @@
 defmodule Issue do
   @moduledoc """
   A simple issue in a repository
+
+  ## Examples
+
+      iex>  %Issue{ projectname: 'Zape', id: '333'}
+
   """
   @enforce_keys [:projectname, :id]
   defstruct [:projectname, :id, state: :Open ]
-  
+
   @doc """
   Can create and close it, and that's it
 
   """
-  def close( issue ) do 
+  def close( issue ) do
     issue |> struct( %{state: :Closed} )
   end
 
